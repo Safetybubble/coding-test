@@ -1,8 +1,11 @@
 def solution(arr, query):
     answer = []
+    start = 0
+    end = len(arr)-1
     for i in range(len(query)):
         if i%2==0:
-            arr = arr[:query[i]+1]
-        elif i%2==1:
-            arr = arr[query[i]:]
-    return arr
+            end = start + query[i]
+            
+        else:
+            start = start + query[i]
+    return arr[start:end+1]
